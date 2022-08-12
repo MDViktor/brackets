@@ -1,5 +1,6 @@
 module.exports = function check(str, bracketsConfig) {
   console.log(str);
+  console.log(bracketsConfig);
   const obj = {};
   let stack = [];
   for (const key of bracketsConfig) {
@@ -10,16 +11,11 @@ module.exports = function check(str, bracketsConfig) {
     let curr = str[i];
     if (curr === '('||curr === '{'||curr === '['||curr === '|'){
       stack.push(curr);
-      console.log(stack.length);
     } else {
       if (stack.length === 0){
         return false;
       }
       let last = stack[stack.length - 1];
-      console.log(last);
-      
-      
-      console.log(obj[curr]);
       if (obj[curr] === last){
         stack.pop();
       }
